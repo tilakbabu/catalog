@@ -1,0 +1,50 @@
+{% extends "base.html" %}
+
+{% block title %}Category Items{% endblock title %}
+
+{% block content %}
+{% include "nav.html" %}
+{% include "flash.html" %}
+
+<!-- Page Content -->
+<section id="showItem" class="section">
+
+    <div class="container">
+
+        <div class="row">
+
+            {% include "categories.html" %}
+
+            <div class="col-md-9">
+                {% if(count>1) %}
+                <p class="h3">{{category}} Items (<strong>{{count}} items</strong>)</p>
+                {% elif(count==0) %}
+                <p class="h3">No items found in <strong>{{category}}</strong></p>
+                {% else %}
+                <p class="h3">{{category}} Items (<strong>{{count}} item</strong>)</p>
+                {% endif %}
+            {% for i in items %}
+              <div class="panel-group">
+                <div class="panel panel-primary">
+                  <div class="panel-heading">
+                    <h3 class="panel-title">
+                      <a data-toggle="collapse" href="#{{ loop.index }}">{{ i.name }}</a>
+                    </h3>
+                  </div>
+                  <div id="{{ loop.index }}" class="panel-collapse collapse">
+                    <div class="panel-body" align="center">
+                        <img class="img-responsive" src="{{ i.picture }}" alt="{{ i.name }}">
+                        <p class="h4">{{ i.description }}</p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            {% endfor %}
+        </div>
+        <!-- /.row -->
+    </div>
+    <!-- /.container -->
+</section>
+<!-- /.section -->
+
+{% endblock %}

@@ -1,0 +1,34 @@
+<nav class="navbar navbar-default navbar-fixed-top">
+  <div class="container-fluid">
+
+<nav class="navbar navbar-inverse">
+  <div class="container-fluid">
+    <div class="navbar-header">
+      <a class="navbar-brand" href="{{url_for('showCatalog')}}">Catalog App</a>
+    </div>
+    {% if 'username' not in session %}
+    <ul class="nav navbar-nav navbar-right">
+      <li><a href="{{url_for('showLogin')}}"><span class="glyphicon glyphicon-log-in"></span> Login</a></li>
+    </ul>
+    {% else %}
+      <ul class="nav navbar-nav navbar-right">
+        <li><a href="{{url_for('addCategory')}}">Add Category</a></li>
+        <li><a href="{{url_for('addItem')}}">Add Item</a></li>
+        <li><a href="{{url_for('gdisconnect')}}"><span class="glyphicon glyphicon-log-out"></span> Logout</a></li>
+      </ul>
+    {% endif %}
+  </div>
+</nav>
+    <!-- Collect the nav links, forms, and other content for toggling -->
+    <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+
+      {% if 'username' not in session %}
+      {% else %}
+      <!-- <ul class="nav navbar-nav navbar-right">
+        <li><a href="{{url_for('addItem')}}">Add Item</a></li>
+        <li><a href="{{url_for('addCategory')}}">Add Category</a></li>
+      </ul> -->
+      {% endif %}
+    </div><!-- /.navbar-collapse -->
+  </div><!-- /.container-fluid -->
+</nav>

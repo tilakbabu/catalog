@@ -33,7 +33,10 @@
                             <a href = "{{url_for('deleteItem', category_name = i.category.name, item_name = i.name)}}">Delete</a>
                         </p>
                         <p class="h4 pull-right panel-title">
-                            <a href = "{{url_for('editItem', category_name = i.category.name, item_name = i.name)}}">Edit</a>
+                            <a href = "{{url_for('editItem', category_name = i.category.name, item_name = i.name)}}">   &nbsp;Edit</a>
+                        </p>
+                        <p class="h4 pull-right panel-title">
+                            <a href = "{{url_for('ItemJSON', category_name = i.category.name, item_name = i.name)}}">Item JSON </a>
                         </p>
                     </h3>
                   </div>

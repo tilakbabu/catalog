@@ -2,7 +2,11 @@
 <section id="showCategories">
 
             <div class="col-md-3">
-              <p class="h3">Categories</p>
+              <p class="h3">Categories                             
+                <a href = "{{url_for('categoriesJSON')}}">
+                    <span class="glyphicon glyphicon-send pull-right" data-toggle="tooltip" title="Categories JSON" data-placement="top"> </span> 
+                </a>
+              </p>
               <ul class="list-group">
 		        {% for c in categories %}
                     <li class="list-group-item">
@@ -17,6 +21,8 @@
                     		<a href = "{{url_for('editCategory', category_name = c.name)}}">
                     		<span class="glyphicon glyphicon-pencil pull-right " data-toggle="tooltip" title="Edit Category" data-placement="bottom"> </span> </a>
                     		{% endif %}
+                            <a href = "{{url_for('categoryItemsJSON', category_name = c.name)}}">
+                            <span class="glyphicon glyphicon-send pull-right" data-toggle="tooltip" title="Category-Items JSON" data-placement="top"> </span> </a>
                     		
                     	</p>
                     </li>

@@ -29,6 +29,9 @@
                   <div class="panel-heading">
                     <h3 class="panel-title">
                       <a data-toggle="collapse" href="#{{ loop.index }}">{{ i.name }}</a>
+                        <p class="h4 pull-right panel-title">
+                            <a href = "{{url_for('ItemJSON', category_name = i.category.name, item_name = i.name)}}">Item JSON </a>
+                        </p>
                     </h3>
                   </div>
                   <div id="{{ loop.index }}" class="panel-collapse collapse">

@@ -1,8 +1,13 @@
 {% extends "base.html" %}
+{% block title %}Delete Item{% endblock title %}
 {% include "nav.html" %}
 {% block content %}
 
 <section id="deleteItem" class="section">
+    <div class="container">
+    <div class="row">
+    {% include "categories.html" %}
+        <div class="col-md-9">
     <div class="section-content container padding-1-5">
         <h1>Delete Item</h1>
         <p class="padding-top-10">Are you sure you want to delete item - <strong> {{item.name}} </strong>?</p>
@@ -16,6 +21,8 @@
             </div>
         </form>
     </div>
+</div>
+</div>
 </section>
 
 {% endblock %}

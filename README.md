@@ -67,6 +67,8 @@ To get the Google login working there are a few additional steps:
 ## JSON Endpoints
 The following are open to the public:
 
+I added glyphicon to access these urls easily.
+
 Catalog JSON: `/catalog/JSON`
     - Displays the whole catalog. Categories and all items.
 

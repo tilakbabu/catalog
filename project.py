@@ -48,6 +48,10 @@ def showLogin():
     login_session['state'] = state
     return render_template('login.html', STATE=state, categories=categories)
 
+@app.route('/users')
+def showUsers():
+    users = session.query(User).order_by(asc(User.id))
+    return render_template('users.html', users = users,categories = categories)
 
 # GConnect
 @app.route('/gconnect', methods=['POST'])
@@ -121,7 +125,7 @@ def gconnect():
     login_session['gplus_id'] = gplus_id
 
     # Get user info
-    userinfo_url = "https://www.googleapis.com/oauth2/v1/userinfo"
+    userinfo_url = "https://www.googleapis.com/oauth2/v1/userinfo?alt=json"
     params = {'access_token': access_token, 'alt': 'json'}
     answer = requests.get(userinfo_url, params=params)
 
@@ -409,8 +413,6 @@ def deleteItem(category_name, item_name):
                                item=itemToDelete, categories=categories)
 
 # JSON
-
-
 @app.route('/catalog/JSON')
 def allItemsJSON():
     categories = session.query(Category).all()

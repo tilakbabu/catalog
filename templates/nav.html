@@ -6,9 +6,11 @@
     <div class="navbar-header">
       <a class="navbar-brand" href="{{url_for('showCatalog')}}">Catalog App</a>
     </div>
+    <ul class="nav navbar-nav">
+      <li><a href="#">Home</a></li>
+    </ul>
     {% if 'username' not in session %}
     <ul class="nav navbar-nav navbar-right">
-      <li><a href="{{url_for('allItemsJSON')}}" title="All Items JSON"><span class="glyphicon glyphicon-send"></span> </a></li>
       <li><a href="{{url_for('showLogin')}}"><span class="glyphicon glyphicon-log-in"></span> Login</a></li>
     </ul>
     {% else %}
@@ -18,6 +20,9 @@
         <li><a href="{{url_for('gdisconnect')}}"><span class="glyphicon glyphicon-log-out"></span> Logout</a></li>
       </ul>
     {% endif %}
+    <ul class="nav navbar-nav navbar-right">
+      <li><a href="{{url_for('allItemsJSON')}}" title="All Items JSON"><span class="glyphicon glyphicon-send"></span> </a></li>
+    </ul>
   </div>
 </nav>
     <!-- Collect the nav links, forms, and other content for toggling -->

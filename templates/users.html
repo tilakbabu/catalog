@@ -1,0 +1,45 @@
+{% extends "base.html" %}
+{% block title %}All Items{% endblock title %}
+
+{% block content %}
+{% include "nav.html" %}
+{% include "flash.html" %}
+
+<!-- Page Content -->
+<section id="showItem" class="section">
+
+    <div class="container">
+
+        <div class="row">
+
+            {% include "categories.html" %}
+
+            <div class="col-md-9">
+                <table class="table table-bordered table-dark">
+                  <thead>
+                    <tr>
+                      <th scope="col">id</th>
+                      <th scope="col">Name</th>
+                      <th scope="col">Email</th>
+                      <th scope="col">Photo</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    {% for user in users %}
+                        <tr>
+                          <th>{{ user.id }}</th>
+                          <td>{{ user.name }}</td>
+                          <td>{{ user.email }}</td>
+                          <td>{{ user.picture }}</td>
+                        </tr>
+                    {% endfor %}
+                  </tbody>
+                </table>
+        </div>
+        <!-- /.row -->
+    </div>
+    <!-- /.container -->
+</section>
+<!-- /.section -->
+
+{% endblock %}
